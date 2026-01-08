@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,.1);
+    }
+    input, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px;
+    }
+    #msg {
+      margin-top: 10px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h3>Admin Login</h3>
+  <input id="username" placeholder="username" />
+  <input id="password" type="password" placeholder="password" />
+  <button onclick="login()">Login</button>
+  <div id="msg"></div>
+</div>
+
+<script>
+async function login() {
+  const res = await fetch("/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      username: username.value,
+      password: password.value
+    })
+  });
+
+  const data = await res.json();
+
+  if (res.ok) {
+    localStorage.setItem("token", data.access_token);
+    document.getElementById("msg").style.color = "green";
+    document.getElementById("msg").innerText = "Login successful ✅";
+  } else {
+    document.getElementById("msg").innerText = data.detail;
+  }
+}
+</script>
+
+</body>
+</html>
