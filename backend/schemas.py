@@ -9,6 +9,11 @@ class ProjectRequestCreate(BaseModel):
 
 class ProjectRequestResponse(ProjectRequestCreate):
     id: int
+    status: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+class LoginRequest(BaseModel):
+    username: str
+    password: str

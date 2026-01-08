@@ -2,10 +2,10 @@ from fastapi import FastAPI, Depends, HTTPException, WebSocket, WebSocketDisconn
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import os
-
 from . import models, schemas
 from .database import SessionLocal, engine
 from .auth import authenticate_user, create_access_token, get_current_admin
+
 
 
 models.Base.metadata.create_all(bind=engine)
