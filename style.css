@@ -1,0 +1,110 @@
+/* ==== تنظیمات کلی صفحه ==== */
+body {
+  font-family: "Vazir", Tahoma, sans-serif;
+  background: #f7f9fc;
+  color: #222;
+  margin: 0;
+  padding: 0 20px;
+  line-height: 1.8;
+}
+
+/* ==== تیتر اصلی ==== */
+h1 {
+  text-align: center;
+  background: linear-gradient(90deg, #0078d4, #00b4d8);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 0 0 15px 15px;
+  margin-top: 0;
+}
+
+/* ==== تیترهای بخش‌ها ==== */
+h2 {
+  color: #005fa3;
+  border-right: 5px solid #00b4d8;
+  padding-right: 10px;
+  margin-top: 30px;
+}
+
+/* ==== خطوط جداکننده ==== */
+hr {
+  border: none;
+  border-top: 2px dashed #cce0ff;
+  margin: 25px 0;
+}
+
+/* ==== لیست‌ها ==== */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #eaf4ff;
+  margin: 8px 0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+ul li:hover {
+  background-color: #d6eaff;
+}
+
+/* ==== لینک‌ها ==== */
+a {
+  color: #0078d4;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #005fa3;
+}
+
+/* ==== اطلاعات متنی ==== */
+p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+/* ==== ریسپانسیو برای موبایل ==== */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  ul li {
+    font-size: 0.95rem;
+  }
+}
+/* ==== بخش مهارت‌ها با Flexbox ==== */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.skills div {
+  flex: 1 1 30%;
+  background-color: #eaf4ff;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.skills div:hover {
+  background-color: #cfe5ff;
+  transform: scale(1.05);
+}
