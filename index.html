@@ -3,32 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>رزومه امیرحسین احمدی</title>
-
   <link rel="stylesheet" href="style.css">
-
-
 </head>
+
 <body>
 
-  <h1>رزومه</h1>
+<p>تعداد کاربران آنلاین: <span id="onlineCount">0</span></p>
 
-  <h2>مشخصات فردی</h2>
-  <p><strong>نام:</strong> امیرحسین احمدی</p>
-  <p><strong>رشته:</strong> مهندسی کامپیوتر</p>
-  <p><strong>متولد:</strong> 1380/10/30 - استان خوزستان، شهرستان شوش</p>
-  <p><strong>ایمیل:</strong> amir1380ahmadi4800@gmail.com</p>
-  <p><strong>شماره تماس:</strong> 09167844800</p>
-  <p><strong>لینک گیت هاب :</strong> <a href="https://github.com/amirhosseinahmadi4800" target="_blank">github.com/amirhosseinahmadi4800</a></p>
+<h1>رزومه</h1>
 
-  <hr>
+<h2>مشخصات فردی</h2>
+<p><strong>نام:</strong> امیرحسین احمدی</p>
+<p><strong>رشته:</strong> مهندسی کامپیوتر</p>
+<p><strong>متولد:</strong> 1380/10/30 - استان خوزستان، شهرستان شوش</p>
+<p><strong>ایمیل:</strong> amir1380ahmadi4800@gmail.com</p>
+<p><strong>شماره تماس:</strong> 09167844800</p>
+<p><strong>لینک گیت هاب :</strong>
+  <a href="https://github.com/amirhosseinahmadi4800" target="_blank">
+    github.com/amirhosseinahmadi4800
+  </a>
+</p>
 
-  <h2>تحصیلات</h2>
-  <ul>
-    <li>کارشناسی مهندسی کامپیوتر - دانشگاه شهید چمران اهواز (1400 تا 1404)</li>
-  </ul>
+<hr>
 
-  <hr>
+<h2>تحصیلات</h2>
+<ul>
+  <li>کارشناسی مهندسی کامپیوتر - دانشگاه شهید چمران اهواز (1400 تا 1404)</li>
+</ul>
 
+<hr>
 
 <h2>مهارت‌ها</h2>
 <div class="skills">
@@ -37,26 +40,32 @@
   <div>طراحی وب با HTML و CSS</div>
 </div>
 
-  </ul>
+<hr>
 
-  <hr>
+<h2>مدارک و گواهینامه‌ها</h2>
+<ul>
+  <li>مدرک Python از سایت مکتب‌خونه</li>
+  <li>مدرک برنامه‌نویسی ربات تلگرام با Python از سایت مکتب‌خونه</li>
+  <li>مدرک Excel از سایت مکتب‌خونه</li>
+</ul>
 
-  <h2>مدارک و گواهینامه‌ها</h2>
-  <ul>
-    <li>مدرک Python از سایت مکتب‌خونه</li>
-    <li>مدرک برنامه‌نویسی ربات تلگرام با Python از سایت مکتب‌خونه</li>
-    <li>مدرک Excel از سایت مکتب‌خونه</li>
-  </ul>
+<hr>
 
-  <hr>
+<h2>افتخارات و فعالیت‌ها</h2>
+<ul>
+  <li>عضو انجمن علمی مهندسی کامپیوتر</li>
+</ul>
 
-  <h2>افتخارات و فعالیت‌ها</h2>
-  <ul>
-    <li>عضو انجمن علمی مهندسی کامپیوتر</li>
-  </ul>
+<hr>
 
-  <hr>
+<!-- WebSocket -->
+<script>
+  const ws = new WebSocket("ws://127.0.0.1:8000/ws/online");
 
- 
+  ws.onmessage = (event) => {
+    document.getElementById("onlineCount").innerText = event.data;
+  };
+</script>
+
 </body>
 </html>
