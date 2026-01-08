@@ -4,19 +4,27 @@ from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 
-# ================== CONFIG ==================
+# =======================
+# تنظیمات امنیتی
+# =======================
 
 SECRET_KEY = "SUPER_SECRET_KEY"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
-ADMIN_USERNAME = "admin"
-ADMIN_PASSWORD = "admin123"
-
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
-# ================== PASSWORD ==================
+# =======================
+# ادمین ثابت (برای پروژه درسی)
+# =======================
+
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "admin123"
+
+# =======================
+# هش پسورد ادمین (lazy init)
+# =======================
 
 ADMIN_HASHED_PASSWORD = None
 
@@ -26,13 +34,15 @@ def get_password_hash(password: str) -> str:
 def verify_password(plain: str, hashed: str) -> bool:
     return pwd_context.verify(plain, hashed)
 
-def get_admin_hashed_password():
+def get_admin_hashed_password() -> str:
     global ADMIN_HASHED_PASSWORD
     if ADMIN_HASHED_PASSWORD is None:
         ADMIN_HASHED_PASSWORD = get_password_hash(ADMIN_PASSWORD)
     return ADMIN_HASHED_PASSWORD
 
-# ================== AUTH ==================
+# =======================
+# احراز هویت
+# =======================
 
 def authenticate_user(username: str, password: str):
     if username != ADMIN_USERNAME:
@@ -42,6 +52,10 @@ def authenticate_user(username: str, password: str):
         return False
 
     return {"username": username}
+
+# =======================
+# JWT
+# =======================
 
 def create_access_token(data: dict):
     to_encode = data.copy()
